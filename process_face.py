@@ -53,18 +53,18 @@ while True:
             #cv2.imshow("output",cropped_image) 
             cv2.imwrite("D:\\mini project2\\vid to frame\\frame%d.jpg" % face_count, cropped_image)
             face_count+=1
-            try:
-                criminal_match = DeepFace.verify("frame16.jpg",cropped_image,enforce_detection=False)
-            except:
-                criminal_match['verified'] = False
-            if criminal_match['distance'] <= 0.3 and criminal_match['verified']:
-                print("criminal match = ",criminal_match)
-                cropped_image = cv2.resize(cropped_image, (300,300), interpolation = cv2.INTER_AREA)
+            # try:
+            #     criminal_match = DeepFace.verify("frame16.jpg",cropped_image,enforce_detection=False)
+            # except:
+            #     criminal_match['verified'] = False
+            # if criminal_match['distance'] <= 0.3 and criminal_match['verified']:
+            #     print("criminal match = ",criminal_match)
+            #     cropped_image = cv2.resize(cropped_image, (300,300), interpolation = cv2.INTER_AREA)
 
-                cv2.imshow("criminal",cropped_image)
-                cv2.imwrite("D:\\mini project2\\criminals\\frame%d.jpg" % face_count, cropped_image)
-            else:
-                print("criminal match = ",criminal_match)
+            #     cv2.imshow("criminal",cropped_image)
+            #     cv2.imwrite("D:\\mini project2\\criminals\\frame%d.jpg" % face_count, cropped_image)
+            # else:
+            #     print("criminal match = ",criminal_match)
 
             
         for person in persons:
